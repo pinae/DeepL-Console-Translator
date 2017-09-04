@@ -26,3 +26,4 @@ r = requests.post('https://deepl.com/jsonrpc', data=json.dumps(payload))
 translations = json.loads(r.text)['result']['translations']
 for translation in translations:
     print(sorted(translation['beams'], key=lambda b: -1 * b['score'])[0]['postprocessed_sentence'], end=" ")
+print()
