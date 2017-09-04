@@ -1,5 +1,5 @@
 # DeepL-Console-Translator
-Use the DeepL translator on the console.
+Use the [DeepL translator](https://deepl.com/translate) on the console.
 
 ## Installaltion
 
