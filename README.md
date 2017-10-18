@@ -1,7 +1,7 @@
 # DeepL-Console-Translator
 Use the [DeepL translator](https://deepl.com/translate) on the console.
 
-## Installaltion
+## Installation
 
 Checkout the repository:
 
