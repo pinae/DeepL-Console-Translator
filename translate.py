@@ -4,6 +4,7 @@ from __future__ import division, print_function, unicode_literals
 import argparse
 import re
 import requests
+import json
 
 DEEP_L = 'https://deepl.com/jsonrpc'
 
@@ -43,7 +44,7 @@ def main():
                      "target_lang": args.target_lang},
             "priority": 1}}
 
-    req = requests.post(DEEP_L, json=payload)
+    req = requests.post(DEEP_L, data=json.dumps(payload))
 
     if req.ok:
         translations = req.json()['result']['translations']
