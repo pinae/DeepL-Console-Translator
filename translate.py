@@ -15,13 +15,13 @@ def main():
         '-t', '--target',
         default='EN',
         dest='target_lang',
-        choices=['EN', 'DE', 'FR', 'ES', 'IT', 'NL', 'PL', 'auto'],
+        choices=['EN', 'DE', 'FR', 'ES', 'IT', 'NL', 'PL'],
         help="The language to translate into. Defaults to English.")
     parser.add_argument(
         '-s', '--source',
         default='auto',
         dest='source_lang',
-        choices=['DE', 'EN', 'FR', 'ES', 'IT', 'NL', 'PL'],
+        choices=['DE', 'EN', 'FR', 'ES', 'IT', 'NL', 'PL', 'auto'],
         help="The language to translate from. Defaults to 'auto'.")
     parser.add_argument(
         'text',
