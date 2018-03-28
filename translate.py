@@ -4,6 +4,7 @@ from __future__ import division, print_function, unicode_literals
 import argparse
 import re
 import requests
+import json
 
 DEEP_L = 'https://deepl.com/jsonrpc'
 
@@ -15,13 +16,13 @@ def main():
         '-t', '--target',
         default='EN',
         dest='target_lang',
-        choices=['EN', 'DE', 'FR', 'ES', 'IT', 'NL', 'PL', 'auto'],
+        choices=['EN', 'DE', 'FR', 'ES', 'IT', 'NL', 'PL'],
         help="The language to translate into. Defaults to English.")
     parser.add_argument(
         '-s', '--source',
         default='auto',
         dest='source_lang',
-        choices=['DE', 'EN', 'FR', 'ES', 'IT', 'NL', 'PL'],
+        choices=['DE', 'EN', 'FR', 'ES', 'IT', 'NL', 'PL', 'auto'],
         help="The language to translate from. Defaults to 'auto'.")
     parser.add_argument(
         'text',
@@ -43,7 +44,7 @@ def main():
                      "target_lang": args.target_lang},
             "priority": 1}}
 
-    req = requests.post(DEEP_L, json=payload)
+    req = requests.post(DEEP_L, data=json.dumps(payload))
 
     if req.ok:
         translations = req.json()['result']['translations']
