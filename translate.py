@@ -16,7 +16,7 @@ def main():
         '-t', '--target',
         default='EN',
         dest='target_lang',
-        choices=['EN', 'DE', 'FR', 'ES', 'IT', 'NL', 'PL', 'auto'],
+        choices=['EN', 'DE', 'FR', 'ES', 'IT', 'NL', 'PL'],
         help="The language to translate into. Defaults to English.")
     parser.add_argument(
         '-s', '--source',
@@ -44,7 +44,7 @@ def main():
                      "target_lang": args.target_lang},
             "priority": 1}}
 
-    req = requests.post(DEEP_L, json.dumps(payload))
+    req = requests.post(DEEP_L, data=json.dumps(payload))
 
     if req.ok:
         translations = req.json()['result']['translations']
