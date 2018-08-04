@@ -6,7 +6,7 @@ import re
 import requests
 import json
 
-DEEP_L = 'https://deepl.com/jsonrpc'
+DEEP_L = 'https://www2.deepl.com/jsonrpc'
 
 
 def main():
